@@ -6,6 +6,7 @@
 let displayobj = require('./display')
 let linebreakobj = require('./lineBreak')
 let numberingobj = require('./number')
+let helpobj = require('./help')
 
 let input = process.argv.slice(2);
 
@@ -13,7 +14,7 @@ let input = process.argv.slice(2);
 let cmd = input[0];
 
 
-if(cmd!="-n" && cmd!="-s" && cmd!="-b"){
+if(cmd!="-n" && cmd!="-s" && cmd!="-b" && cmd!="-help"){
     //display
     displayobj.displayfn(input)
 }else if(cmd=="-s"){
@@ -47,5 +48,9 @@ if(cmd!="-n" && cmd!="-s" && cmd!="-b"){
     }else{
         numberingobj.numberfn(cmd,input[1])
     }
+}else if(cmd=="-help"){
+    helpobj.helperfn()
+}else{
+    console.log("Wrong command enter please see help")
 }
 
